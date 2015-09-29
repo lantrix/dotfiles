@@ -1,3 +1,3 @@
-if [[ -f $BREW_PREFIX/etc/etc/bash_completion.d ]]; then
+if [[ -f $BREW_PREFIX/etc/bash_completion.d ]]; then
   source $BREW_PREFIX/etc/bash_completion.d/*
 fi
