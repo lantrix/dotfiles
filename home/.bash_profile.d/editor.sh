@@ -1,2 +1,1 @@
-#export EDITOR="mvim -f"
-export EDITOR="`which subl`"
+export EDITOR="mvim -f"
