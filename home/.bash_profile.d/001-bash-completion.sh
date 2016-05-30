@@ -9,3 +9,9 @@ fi
 if [[ -f /etc/bash_completion ]]; then
 	bash /etc/bash_completion
 fi
+
+#Azure CLI completion
+if [[ -f `which azure` ]]; then
+  azure --completion > ~/azure.completion.sh
+  source ~/azure.completion.sh
+fi
