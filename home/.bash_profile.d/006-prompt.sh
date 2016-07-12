@@ -2,7 +2,7 @@
 ## Mac install
 if [[ -f $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh ]];
 then
-  export PATH="$HOME/Library/Python/2.7/bin/:$PATH"
+  export PATH="$HOME/Library/Python/2.7/bin:$PATH"
   export POWERLINE_COMMAND=powerline
   export POWERLINE_CONFIG_COMMAND=powerline-config
   powerline-daemon -q
