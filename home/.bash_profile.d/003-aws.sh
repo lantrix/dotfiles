@@ -1,6 +1,6 @@
 # AWSSAMLCLIAuth
 if [[ -f /usr/local/bin/awssamlcliauth/auth.sh  ]]; then
-	alias awsauth='/usr/local/bin/awssamlcliauth/auth.sh; [ -r ~/.aws/sessiontoken ] && . ~/.aws/sessiontoken'
+  function awsauth { /usr/local/bin/awssamlcliauth/auth.sh "$@"; [[ -r "$HOME/.aws/sessiontoken" ]] && . "$HOME/.aws/sessiontoken"; }
 fi
 
 # AWS CLI completions
