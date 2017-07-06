@@ -8,4 +8,3 @@ for file in ${files}; do
   source ${file}
 done
 echo -e "\rComplete"
-
