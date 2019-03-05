@@ -1,0 +1,1 @@
+alias kraken='open -a gitkraken'
