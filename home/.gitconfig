@@ -7,26 +7,26 @@
 [alias]
     dt = difftool
     mt = mergetool
+[merge]
+	tool = bc3
+[mergetool "bcomp"]
+    trustExitCode = true
+    cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 [mergetool]
     prompt = false
     keepBackup = false
     bc3 = trustExitCode
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-    cmd = $HOME/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
 [diff]
-    tool = bc3
+	tool = bc3
+[difftool "bcomp"]
+    trustExitCode = true
+    cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\"
 [difftool]
     prompt = false
-    bc3 = trustExitCode
-[merge]
-    tool = bc3
 [user]
 	name = Lantrix
 	email = lantrix@pobox.com
+	signingKey = ""
 [filter "lfs"]
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
@@ -35,3 +35,11 @@
 	default = simple
 #[url "git@github.com:"]
 #	insteadOf = https://github.com/
+[gpg]
+	program = /usr/local/Cellar/gnupg/2.2.17/bin/gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
+[mergetool "bc3"]
+	trustExitCode = true
