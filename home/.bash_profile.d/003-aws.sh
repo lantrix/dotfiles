@@ -1,6 +1,7 @@
 # AWSSAMLCLIAuth
 if [[ -f /usr/local/bin/awssamlcliauth/auth.sh  ]]; then
   function awsauth { /usr/local/bin/awssamlcliauth/auth.sh "$@"; [[ -r "$HOME/.aws/sessiontoken" ]] && . "$HOME/.aws/sessiontoken"; }
+  export -f awsauth
 fi
 
 # AWS CLI completions
@@ -28,3 +29,4 @@ function stackstatus {
 	done
 }
 
+export AWS_PAGER=""
