@@ -1,5 +1,6 @@
 # Powerline
 ## Mac install
+# pip install --user powerline-status pyuv
 userSite=$(python -m site --user-site)
 userBase=$(python -m site --user-base)
 if [[ -f ${userSite}/powerline/bindings/bash/powerline.sh ]];
