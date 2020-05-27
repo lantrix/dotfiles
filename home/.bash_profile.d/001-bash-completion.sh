@@ -15,3 +15,7 @@ if [[ -f `which azure` ]]; then
   azure --completion > ~/azure.completion.sh
   source ~/azure.completion.sh
 fi
+
+if [[ -f /usr/local/bin/terraform ]]; then
+	complete -C /usr/local/bin/terraform terraform
+fi
