@@ -1,6 +1,8 @@
 if [[ `uname` -eq 'Darwin' ]]; then
   if [[ -n "$(which pyenv)" ]]; then
-    eval "$(pyenv init -)"
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
     # eval "$(pyenv virtualenv-init -)"
     #pyenv compile needs zlib - zlib is keg-only
     export LDFLAGS="-L/usr/local/opt/zlib/lib"
@@ -14,9 +16,8 @@ if [[ `uname` -eq 'Darwin' ]]; then
 fi
 if [[ `uname` -eq 'Linux' ]]; then
   if [[ -d "$HOME/.pyenv" ]]; then
-    export PATH="$HOME/.pyenv/bin:$PATH"
-    if command -v pyenv 1>/dev/null 2>&1; then
-      eval "$(pyenv init -)"
-    fi
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
   fi
 fi
