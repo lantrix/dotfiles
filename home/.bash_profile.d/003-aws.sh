@@ -1,6 +1,6 @@
 # AWSSAMLCLIAuth
-if [[ -f /usr/local/bin/awssamlcliauth/auth.sh  ]]; then
-  function awsauth { /usr/local/bin/awssamlcliauth/auth.sh "$@"; [[ -r "$HOME/.aws/sessiontoken" ]] && . "$HOME/.aws/sessiontoken"; }
+if [[ -f /usr/local/bin/auth.sh  ]]; then
+  function awsauth { /usr/local/bin/auth.sh "$@"; [[ -r "$HOME/.aws/sessiontoken" ]] && . "$HOME/.aws/sessiontoken"; }
   export -f awsauth
 fi
 
