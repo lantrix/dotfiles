@@ -1,7 +1,7 @@
 # Lantrix DotFiles
 
 These are the Unix configurations I'm using.
-Currently Mac OSX and Bash orientated.
+Currently Mac OSX and Bash orientated - Plus catering for Linux use.
 
 ## Usage
 
