@@ -1,3 +1,3 @@
-if [[ -n "$(which pyenv 2>/dev/null)" ]]; then
+if [[ -n "$(which fnm 2>/dev/null)" ]]; then
   eval "$(fnm env)"
 fi
