@@ -1,6 +1,13 @@
 # SSH Agent
-# if [[ $(grep ENCRYPTED $HOME/.ssh/id_rsa) == *ENCRYPTED* ]]; then
-if [[ -f $HOME/.ssh/id_rsa ]]; then
-	eval $(ssh-agent)
-	ssh-add $HOME/.ssh/id_rsa
-fi
+case $(uname) in
+  Linux)
+    export SSH_AUTH_SOCK=~/.1password/agent.sock
+    ;;
+  Darwin)
+    export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+    ;;
+  *)
+		eval $(ssh-agent)
+		ssh-add $HOME/.ssh/id_rsa
+    ;;
+esac
