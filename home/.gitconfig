@@ -35,11 +35,12 @@
 #[url "git@github.com:"]
 #	insteadOf = https://github.com/
 [gpg]
-	program = /usr/local/bin/gpg
+	program = /opt/homebrew/bin/gpg
+	format = openpgp
 [commit]
-	gpgSign = false
+	gpgSign = true
 [tag]
-	forceSignAnnotated = false
+	forceSignAnnotated = true
 [mergetool "bc3"]
 	trustExitCode = true
 [url "git@github.com:"]
@@ -48,3 +49,6 @@
 	defaultBranch = master
 [rebase]
 	abbreviateCommands = true
+[gpg "ssh"]
+	program = ssh-keygen
+	allowedSignersFile = ""
