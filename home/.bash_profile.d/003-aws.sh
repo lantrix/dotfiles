@@ -30,3 +30,6 @@ function stackstatus {
 }
 
 export AWS_PAGER=""
+
+# OP CLI
+source $HOME/.config/op/plugins.sh
