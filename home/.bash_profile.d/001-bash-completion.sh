@@ -26,3 +26,8 @@ fi
 if [[ -f /usr/local/bin/terraform ]]; then
 	complete -C /usr/local/bin/terraform terraform
 fi
+
+	if [[ -f `which poetry 2>/dev/null` ]]; then
+		# populate poetry autocompletion
+		poetry completions bash >> ~/.bash_completion
+	fi
