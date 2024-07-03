@@ -1,6 +1,6 @@
 # Powerline
 ## Mac install
-# pip install --user powerline-status pyuv
+# pip install --user powerline-status
 if [[ `uname` -eq 'Darwin' ]]; then
   userSite=$(python -m site --user-site)
   userBase=$(python -m site --user-base)
