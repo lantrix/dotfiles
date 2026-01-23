@@ -31,3 +31,7 @@ fi
 		# populate poetry autocompletion
 		poetry completions bash >> ~/.bash_completion
 	fi
+
+if [[ -d $HOME/.twilio-cli ]]; then
+	TWILIO_AC_BASH_SETUP_PATH=$HOME/.twilio-cli/autocomplete/bash_setup && test -f $TWILIO_AC_BASH_SETUP_PATH && source $TWILIO_AC_BASH_SETUP_PATH; # twilio autocomplete setup
+fi

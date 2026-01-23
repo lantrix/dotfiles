@@ -31,5 +31,7 @@ function stackstatus {
 
 export AWS_PAGER=""
 
-# OP CLI
-source $HOME/.config/op/plugins.sh
+# OP CLI for aws
+if [[ -f $HOME/.config/op/plugins.sh ]]; then
+	source $HOME/.config/op/plugins.sh
+fi

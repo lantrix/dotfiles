@@ -1,9 +1,8 @@
 if [[ `uname` -eq 'Darwin' ]]; then
   if [[ -n "$(which pyenv 2>/dev/null)" ]]; then
     export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-    # eval "$(pyenv virtualenv-init -)"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init - bash)"
     #pyenv compile needs zlib - zlib is keg-only
     export LDFLAGS="-L/usr/local/opt/zlib/lib"
     export CPPFLAGS="-I/usr/local/opt/zlib/include"
@@ -11,13 +10,24 @@ if [[ `uname` -eq 'Darwin' ]]; then
   if [[ -n "$(which pipenv 2>/dev/null)" ]]; then
     export PIPENV_PYTHON="$HOME/.pyenv/shims/python"
     export PIPENV_VENV_IN_PROJECT=1
-    eval "$(pipenv --completion)"
+    export PIPENV_IGNORE_VIRTUALENVS=1
+    export PATH="$HOME/.pipenv-venv/bin:$PATH"
+    eval "$(_PIPENV_COMPLETE=bash_source pipenv)"
   fi
 fi
 if [[ `uname` -eq 'Linux' ]]; then
-  if [[ -d "$HOME/.pyenv" ]]; then
     export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init - bash)"
+    #pyenv compile needs zlib - zlib is keg-only
+    export LDFLAGS="-L/usr/local/opt/zlib/lib"
+    export CPPFLAGS="-I/usr/local/opt/zlib/include"
+  fi
+  if [[ -n "$(which pipenv 2>/dev/null)" ]]; then
+    export PIPENV_PYTHON="$HOME/.pyenv/shims/python"
+    export PIPENV_VENV_IN_PROJECT=1
+    export PIPENV_IGNORE_VIRTUALENVS=1
+    export PATH="$HOME/.pipenv-venv/bin:$PATH"
+    eval "$(_PIPENV_COMPLETE=bash_source pipenv)"
   fi
 fi

@@ -1,24 +1,25 @@
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = cursor --wait
 [filter "lfs"]
     required = true
 [alias]
     dt = difftool
     mt = mergetool
 [merge]
-	tool = bc3
-[mergetool "bcomp"]
+	tool = bc
+[mergetool "bc"]
     trustExitCode = true
-    cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+    cmd = bcomp \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 [mergetool]
     prompt = false
     keepBackup = false
-    bc3 = trustExitCode
+    bc = trustExitCode
 [diff]
-	tool = bc3
-[difftool "bcomp"]
+	tool = bc
+[difftool "bc"]
     trustExitCode = true
-    cmd = /usr/local/bin/bcomp \"$LOCAL\" \"$REMOTE\"
+    cmd = bcomp \"$LOCAL\" \"$REMOTE\"
 [difftool]
     prompt = false
 [user]
@@ -26,17 +27,20 @@
 	email = lantrix@pobox.com
 	signingKey = ""
 [filter "lfs"]
-	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-    required = true
 	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
 [push]
 	default = simple
-#[url "git@github.com:"]
-#	insteadOf = https://github.com/
+[pull]
+	rebase = false
 [gpg]
-	program = /opt/homebrew/bin/gpg
-	format = openpgp
+	format = ssh
+	program = gpg
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	allowedSignersFile = /Users/lantrix/.config/git/allowed_signers
 [commit]
 	gpgSign = true
 [tag]
@@ -46,9 +50,8 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [rebase]
 	abbreviateCommands = true
-[gpg "ssh"]
-	program = ssh-keygen
-	allowedSignersFile = ""
+# [url "git@github.com:"]
+# 	insteadOf = https://github.com/
