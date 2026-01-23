@@ -1,13 +1,14 @@
-# Lantrix DotFiles
+# Lantrix DotFiles v2
 
 These are the Unix configurations I'm using.
-Currently Mac OSX and Bash orientated - Plus catering for Linux use.
+Currently MacOS and Bash orientated, supporting Linux.
 
 ## Usage
 
-This is a repo (Castle) compatible with the [homesick gem](https://github.com/technicalpickles/homesick).
-Assuming you already have installed homesick, and don't have an existing `$HOME/.bash_profile` etc.
+This is a repo (Castle) compatible with the [homeshick](https://github.com/andsens/homeshick). Assuming you already have installed homeshick:
 
-    cd ~
-    homesick clone lantrix/dotfiles
-    homesick symlink dotfiles
+```shell
+cd ~
+homeshick clone lantrix/dotfiles
+homeshick symlink dotfiles
+```
