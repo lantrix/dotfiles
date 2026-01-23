@@ -1,13 +1,16 @@
 #Mac Completion
-if [[ ! ${#BREW_PREFIX} -eq 0 ]]; then
-	if [[ -d $BREW_PREFIX/etc/bash_completion.d ]]; then
-		#bash-completionv2
-		export BASH_COMPLETION_COMPAT_DIR="$BREW_PREFIX/etc/bash_completion.d"
-		[[ -r "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
-		source $BREW_PREFIX/etc/bash_completion.d/*
-	fi
+if type brew &>/dev/null; then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+  then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+    do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
+  fi
 fi
-
 #Linux Completion
 if [[ -f /etc/bash_completion ]]; then
 	if [[ -f `which kubectl 2>/dev/null` ]]; then
