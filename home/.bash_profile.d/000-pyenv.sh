@@ -22,12 +22,12 @@ if [[ `uname` -eq 'Linux' ]]; then
     #pyenv compile needs zlib - zlib is keg-only
     export LDFLAGS="-L/usr/local/opt/zlib/lib"
     export CPPFLAGS="-I/usr/local/opt/zlib/include"
-  fi
-  if [[ -n "$(which pipenv 2>/dev/null)" ]]; then
-    export PIPENV_PYTHON="$HOME/.pyenv/shims/python"
-    export PIPENV_VENV_IN_PROJECT=1
-    export PIPENV_IGNORE_VIRTUALENVS=1
-    export PATH="$HOME/.pipenv-venv/bin:$PATH"
-    eval "$(_PIPENV_COMPLETE=bash_source pipenv)"
-  fi
+fi
+
+if [[ -n "$(which pipenv 2>/dev/null)" ]]; then
+  export PIPENV_PYTHON="$HOME/.pyenv/shims/python"
+  export PIPENV_VENV_IN_PROJECT=1
+  export PIPENV_IGNORE_VIRTUALENVS=1
+  export PATH="$HOME/.pipenv-venv/bin:$PATH"
+  eval "$(_PIPENV_COMPLETE=bash_source pipenv)"
 fi
