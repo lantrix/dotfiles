@@ -26,3 +26,7 @@ if [[ -d ${HOME}/.yarn ]]; then
     *) export PATH="$YARN_GLOBAL_BIN:$PATH" ;;
     esac
 fi
+
+alias npm='op run --env-file=$HOME/.config/op-env/npm-env -- npm'
+alias yarn='op run --env-file=$HOME/.config/op-env/npm-env -- yarn'
+alias pnpm='op run --env-file=$HOME/.config/op-env/npm-env -- pnpm'

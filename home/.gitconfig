@@ -37,10 +37,9 @@
 	rebase = false
 [gpg]
 	format = ssh
-	program = gpg
 [gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-	allowedSignersFile = /Users/lantrix/.config/git/allowed_signers
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+	allowedSignersFile = ~/.config/git/allowed_signers
 [commit]
 	gpgSign = true
 [tag]
@@ -53,5 +52,3 @@
 	defaultBranch = main
 [rebase]
 	abbreviateCommands = true
-# [url "git@github.com:"]
-# 	insteadOf = https://github.com/
