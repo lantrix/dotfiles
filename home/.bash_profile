@@ -1,16 +1,31 @@
 echo "Loading bash profile scripts"
-number_of_files=$(ls $HOME/.bash_profile.d/*.sh 2>/dev/null |wc -l)
+number_of_files=$(ls $HOME/.bash_profile.d/*.sh 2>/dev/null |wc -l | tr -d ' ')
 processed=0
-files=$(ls $HOME/.bash_profile.d/*.sh 2>/dev/null)
-if [[ `uname` -eq 'Darwin' ]]; then
-  for file in ${files}; do
-    processed=$(expr $processed + 1)
-    # echo -en "\rProcessed ${processed}/${number_of_files}"
-    source ${file}
+files=$(ls $HOME/.bash_profile.d/*.sh 2>/dev/null | sort)
+
+if [ "$number_of_files" -gt 0 ]; then
+  # Create initial empty progress bar
+  bar_length=$number_of_files
+  echo -n "["
+  for ((i=0; i<bar_length; i++)); do
+    echo -n "."
   done
-  # echo -e "\rComplete"
+  echo -n "]"
+  
+  for file in ${files}; do
+    processed=$((processed + 1))
+    # Move cursor back and update progress bar
+    echo -en "\r["
+    for ((i=0; i<processed; i++)); do
+      echo -n "#"
+    done
+    for ((i=processed; i<bar_length; i++)); do
+      echo -n "."
+    done
+    echo -n "]"
+    source "${file}"
+  done
+  echo ""
 else
-  for file in ${files}; do
-    source ${file}
-  done
+  echo "No bash profile scripts found"
 fi
