@@ -10,8 +10,7 @@ fi
 if [[ -n "$(which flux 2>/dev/null)" ]]; then
 	. <(flux completion bash)
 fi
-if kubectl krew version >/dev/null 2>&1; then
-	export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-	source ~/.kube/completion/kubectx.bash
-	source ~/.kube/completion/kubens.bash
+
+if [[ -d $HOME/.krew ]]; then
+  export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 fi
