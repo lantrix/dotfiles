@@ -27,6 +27,6 @@ if [[ -d ${HOME}/.yarn ]]; then
     esac
 fi
 
-alias npm='op run --env-file=$HOME/.config/op-env/npm-env -- npm'
-alias yarn='op run --env-file=$HOME/.config/op-env/npm-env -- yarn'
-alias pnpm='op run --env-file=$HOME/.config/op-env/npm-env -- pnpm'
+command -v npm  >/dev/null 2>&1 && alias npm='op run --env-file=$HOME/.config/op-env/npm-env -- npm'
+command -v yarn >/dev/null 2>&1 && alias yarn='op run --env-file=$HOME/.config/op-env/npm-env -- yarn'
+command -v pnpm >/dev/null 2>&1 && alias pnpm='op run --env-file=$HOME/.config/op-env/npm-env -- pnpm'
